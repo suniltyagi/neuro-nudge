@@ -2,6 +2,7 @@
 
 NeuroNudge is a React-based brain-training platform offering Stroop, 2-Back, Memory Math, Math Blitz, and Path Finder modules. Designed for quick sessions, clean UI, and repeatable practice to sharpen attention, working memory, and mental agility.
 
+[![Live Demo](https://img.shields.io/badge/demo-https%3A%2F%2Fsuniltyagi.github.io%2Fneuro--nudge-blue)](https://suniltyagi.github.io/neuro-nudge/)
 [![CI](https://github.com/suniltyagi/neuro-nudge/actions/workflows/ci.yml/badge.svg)](https://github.com/suniltyagi/neuro-nudge/actions/workflows/ci.yml)
 ![React](https://img.shields.io/badge/React-18-blue)
 ![Node](https://img.shields.io/badge/Node-20.x-informational)
