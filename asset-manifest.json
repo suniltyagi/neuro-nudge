@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/suniltyagi/neuro-nudge/static/css/main.44d8efc1.css",
+    "main.js": "/suniltyagi/neuro-nudge/static/js/main.adc2badc.js",
+    "static/js/488.c5292af3.chunk.js": "/suniltyagi/neuro-nudge/static/js/488.c5292af3.chunk.js",
+    "index.html": "/suniltyagi/neuro-nudge/index.html",
+    "main.44d8efc1.css.map": "/suniltyagi/neuro-nudge/static/css/main.44d8efc1.css.map",
+    "main.adc2badc.js.map": "/suniltyagi/neuro-nudge/static/js/main.adc2badc.js.map",
+    "488.c5292af3.chunk.js.map": "/suniltyagi/neuro-nudge/static/js/488.c5292af3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44d8efc1.css",
+    "static/js/main.adc2badc.js"
+  ]
+}

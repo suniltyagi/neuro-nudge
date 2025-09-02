@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build outputs
+build/
+dist/
+.cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files (never commit secrets)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor / OS junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Test coverage
+coverage/
+
+# Package manager lockfiles (choose one, ignore the others)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
