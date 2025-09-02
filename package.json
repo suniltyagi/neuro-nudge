@@ -16,10 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write .",
-
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -42,10 +40,11 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.2.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17",
-    "gh-pages": "^6.2.0"
+    "tailwindcss": "^3.4.17"
   },
   "homepage": "https://suniltyagi.github.io/neuro-nudge",
   "bugs": {
