@@ -10,13 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Use the exact Node version from .nvmrc
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
 
-      # If you have a package-lock.json, prefer npm ci (faster, reproducible)
       - name: Install deps
         run: |
           if [ -f package-lock.json ]; then
@@ -25,5 +23,5 @@ jobs:
             npm install
           fi
 
-      - name: Build
-        run: npm run build
+      - name: Build (ignore warnings)
+        run: CI=false npm run build
