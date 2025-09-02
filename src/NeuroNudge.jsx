@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import useDarkMode from "./hooks/useDarkMode";
 import Modal from "./components/Modal";
 
@@ -215,33 +215,43 @@ function Stroop({ onEarnSeconds, sound }) {
 
   const done = trial >= TOTAL || timeLeft <= 0;
 
-  // present a stimulus and arm response timeout
-  const present = () => {
-    const colorIdx = randInt(0, COLORS.length - 1);
-    let word = choice(COLORS).name;
-    if (Math.random() < 0.7) {
-      while (word === COLORS[colorIdx].name) word = choice(COLORS).name; // incongruent
-    } else {
-      word = COLORS[colorIdx].name; // congruent
-    }
-    setCurrent({ word, colorIdx });
-    setRtStart(performance.now());
-  
+ //import { useCallback, useEffect } from "react";
 
-    if (respTimerRef.current) clearTimeout(respTimerRef.current);
-    respTimerRef.current = setTimeout(() => {
-      sound?.fail?.();
-      setCurrent(null);
-      gapTimerRef.current = setTimeout(() => setTrial(t => t + 1), ISI);
-    }, RT_LIMIT);
-  };
+// present a stimulus and arm response timeout
+const present = useCallback(() => {
+  const colorIdx = randInt(0, COLORS.length - 1);
+  let word = choice(COLORS).name;
 
-  // drive presentation whenever trial changes while running
-  useEffect(() => {
-    if (!running || done) return;
-    present();
-    return () => clearTimers();
-  }, [trial, running, done]);
+  if (Math.random() < 0.7) {
+    while (word === COLORS[colorIdx].name) word = choice(COLORS).name; // incongruent
+  } else {
+    word = COLORS[colorIdx].name; // congruent
+  }
+
+  setCurrent({ word, colorIdx });
+  setRtStart(performance.now());
+
+  if (respTimerRef.current) clearTimeout(respTimerRef.current);
+  respTimerRef.current = setTimeout(() => {
+    sound?.fail?.();
+    setCurrent(null);
+    gapTimerRef.current = setTimeout(() => setTrial(t => t + 1), ISI);
+  }, RT_LIMIT);
+}, [sound, ISI, RT_LIMIT]);
+
+// stable cleanup
+const clearTimers = useCallback(() => {
+  if (respTimerRef.current) clearTimeout(respTimerRef.current);
+  if (gapTimerRef.current) clearTimeout(gapTimerRef.current);
+}, []);
+
+// drive presentation whenever trial changes while running
+useEffect(() => {
+  if (!running || done) return;
+  present();
+  return () => clearTimers();
+}, [trial, running, done, present, clearTimers]);
+
 
   // user answer
   const answer = (i) => {
