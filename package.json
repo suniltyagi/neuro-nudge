@@ -15,7 +15,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write .",
+
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +44,18 @@
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "gh-pages": "^6.2.0"
+  },
+  "homepage": "https://github.com/suniltyagi/neuro-nudge#readme",
+  "bugs": {
+    "url": "https://github.com/suniltyagi/neuro-nudge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suniltyagi/neuro-nudge.git"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
